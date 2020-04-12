@@ -43,7 +43,7 @@ def main(people):
         new_states = []
 
         # The key is a pattern of which people are on the left and right and also which side the torch is on. 
-        # Any state with the same key will have the same solutions from here on so only pick on state for each key. 
+        # Any state with the same key will have the same solutions from here on so only pick one state for each key. 
         # Pick the one with the shortest time.
 
         for key in keys:

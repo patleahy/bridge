@@ -4,14 +4,6 @@
 #
 # Example: 
 #   python3 bridge.py me 1 assistant 2 janitor 5 prof 10
-#
-# Don't use the same name twice.
-#
-# The runtime complexity of this is terrible (see https://oeis.org/A167484). 
-# This can only resinable be run up to 6 people.
-#
-# There is a solution in n^2 time.
-# See http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.296.7287&rep=rep1&type=pdf
 
 import copy
 import sys
@@ -49,6 +41,10 @@ def main(people):
     # For each crossing replace states with all the possible states we could be after the crossing.
     for _ in range(step_count):
         new_states = []
+
+        # The key is a pattern of which people are on the left and right and also which side the torch is on. 
+        # Any state with the same key will have the same solutions from here on so only pick on state for each key. 
+        # Pick the one with the shortest time.
 
         for key in keys:
             states_for_key = [state for state in states if state['key'] == key]
